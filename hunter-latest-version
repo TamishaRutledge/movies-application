@@ -8,22 +8,25 @@ sayHello('World');
 /**
  * require style imports
  */
-// const {getMovies} = require('./api.js');
+const {getMovies} = require('./api.js');
 
 
 $("#movieTable").append("Loading...");
 
 //----------------------------------------THIS IS THE LIST OF MOVIES--------------------------------------------------//
-$.ajax('/api/movies').done(function (data) {
-    $("#movieTable").html("");
+function loadMovies () {
+    $.ajax('/api/movies').done(function (data) {
+        $("#movieTable").html("");
 
-    data.forEach(function (movie) {
-        $("#movieTable").append(`<tr><td>${movie.title}</td><td>${movie.rating}</td></tr>`);
+        data.forEach(function (movie, id) {
+            $("#movieTable").append(`<tr><td id=${id}>${movie.title}</td><td>${movie.rating}</td></tr>`);
+
+        });
 
     });
+};
 
-});
-
+$(document).ready(loadMovies())
 //--------------------------------------THIS ADDS MOVIES TO THE JSON OBJECT-------------------------------------------//
 $("#addMovieButton").click(function (event) {
     event.preventDefault();
@@ -35,10 +38,16 @@ $("#addMovieButton").click(function (event) {
         title: $("#movieTitle").val(),
         rating: $('input[name=rating]:checked').val()
     }
+
 });
 //------------------------THIS ADDS THE MOVIES TO THE TABLE ON THE PAGE(HTML AND NOT THE JSON FILE)-----------------//
-    $("#movieTable").append(`<tr><td>${$("#movieTitle").val()}</td><td>${$('input[name=rating]:checked').val()}</td></tr>`);
-    $("#movie-dropdown").append(`<option>${$("#movieTitle").val()}</option>`);
+    setTimeout(function () {
+        $("#movieTable").append(`<tr><td>$("#movieTitle").val()</td><td>${$('input[name=rating]:checked').val()}</td></tr>`);
+        $("#movie-dropdown").append(`<option>${$("#movieTitle").val()}</option>`);
+    }, 100)
+    // $("#movieTable").append(`<tr><td>$("#movieTitle").val()</td><td>${$('input[name=rating]:checked').val()}</td></tr>`);
+    // $("#movie-dropdown").append(`<option>${$("#movieTitle").val()}</option>`);
+    loadMovies()
 });
 
 //--------------------------------------THIS IS THE EDIT SECTION OF THE PAGE------------------------------------------//
@@ -54,9 +63,11 @@ $.ajax('/api/movies').done(function (data) {
 
 $("#editMovieButton").click(function (event) {
     event.preventDefault();
+    // let target = event.target
+    // let id = target.id
     let id = $("#movie-dropdown").val();
     console.log(id);
-    $.ajax("/api/movies" + id, {
+    $.ajax(`/api/movies${id}`, {
         method: "PUT",
         dataType: "json",
         data: {

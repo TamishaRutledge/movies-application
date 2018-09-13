@@ -8,9 +8,43 @@
 <body>
 <!--Loading welcome-->
     <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-        <h3 id="info"></h3>
+        <h1>Movie Listing</h1>
+        <table style="max-width:100%" id="movieTable">
+            <thead>Title</thead>
+            <thead>Rating</thead>
+        </table>
+        <hr>
+        <form id="addMovie">
+            Movie To Add:<br>
+            <input type="text" name="movieTitle" id="movieTitle" placeholder="Title Goes Here"><br>
+            Rating:<br>
+                <!--<input type="radio" name="rating" value="0" checked /><span class="hide"></span>-->
+                <input type="radio" name="rating" value="1" /><span></span>
+                <input type="radio" name="rating" value="2" /><span></span>
+                <input type="radio" name="rating" value="3" /><span></span>
+                <input type="radio" name="rating" value="4" /><span></span>
+                <input type="radio" name="rating" value="5" /><span></span>
+            <br><br>
+            <input type="submit" value="Submit" id="addMovieButton">
+            <input type="reset">
+        </form>
+        <hr>
+        <form id="editMovie">
+            Movie:<br>
+            <select id="movie-dropdown">
+                <option value="movieToEdit" id="movieToEdit">Select Movie Below</option>
+            </select>
+            <br>
+            Rating:<br>
+            <input type="radio" name="rating" value="1" /><span></span>
+            <input type="radio" name="rating" value="2" /><span></span>
+            <input type="radio" name="rating" value="3" /><span></span>
+            <input type="radio" name="rating" value="4" /><span></span>
+            <input type="radio" name="rating" value="5" /><span></span>
+            <br><br>
+            <input type="submit" value="Edit" id="editMovieButton">
+            <input type="reset">
+        </form>
     </div>
 
 
