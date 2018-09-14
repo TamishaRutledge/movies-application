@@ -18,7 +18,7 @@ $.ajax('/api/movies').done(function (data) {
     $("#movieTable").html("");
 
     data.forEach(function (movie) {
-        $("#movieTable").append(`<tr><td>${movie.title}</td><td>${movie.rating}</td></tr>`);
+        $("#movieTable").append(`<tr><td>${movie.id}</td><td>${movie.title}</td><td>${movie.rating}</td></tr>`);
 
     });
 
@@ -46,7 +46,7 @@ $.ajax('/api/movies').done(function (data) {
    // $("#movieTable").html("");
 
     data.forEach(function (movie) {
-        $("#movie-dropdown").append(`<option>${movie.title}</option>`);
+        $("#movie-dropdown").append(`<option>${movie.id}${" "}${movie.title}</option>`);
 
 
     });
@@ -56,22 +56,15 @@ $("#editMovieButton").click(function (event) {
     event.preventDefault();
     let id = $("#movie-dropdown").val();
     console.log(id);
-    $.ajax("/api/movies" + id, {
-        method: "PUT",
+    $.ajax(`/api/movies/${id}`, {
+        type: "PUT",
         dataType: "json",
         data: {
             title: $("#movieTitle").val(),
-            rating: $('input[name=rating]:checked').val()
+            rating: $('input[name=rating]:checked').val(),
         }
     });
 });
-// $("#editMovieButton").click(function(event) {
-//     event.preventDefault();
-//     let id = $("#movie-dropdown").val();
-//
-//     // append the id variable to the url for movies
-//     // example "/api/movies/" + id
-// })
 
 
 

@@ -11,64 +11,44 @@
       "id": 2
     },
     {
-      "title": "Hello",
-      "rating": "4",
-      "id": 3
-    },
-    {
       "title": "Infinity War",
       "rating": "5",
-      "id": 4
+      "id": 3
     },
     {
       "title": "Black Panther",
       "rating": "5",
-      "id": 5
+      "id": 4
     },
     {
       "title": "Thor: Ragnorok",
       "rating": "4",
-      "id": 6
+      "id": 5
     },
     {
       "title": "Ant-Man",
       "rating": "4",
-      "id": 7
+      "id": 6
     },
     {
       "title": "Iron Man",
       "rating": "5",
-      "id": 8
-    },
-    {
-      "title": "Iron Man",
-      "rating": "4",
-      "id": 9
+      "id": 7
     },
     {
       "title": "Captain America",
       "rating": "2",
+      "id": 8
+    },
+    {
+      "title": "Homecoming",
+      "rating": "4",
+      "id": 9
+    },
+    {
+      "title": "Guardians of the Galaxy",
+      "rating": "5",
       "id": 10
-    },
-    {
-      "title": "Test",
-      "rating": "4",
-      "id": 11
-    },
-    {
-      "title": "test2",
-      "rating": "4",
-      "id": 12
-    },
-    {
-      "title": "Test1",
-      "rating": "1",
-      "id": 13
-    },
-    {
-      "title": "Test3",
-      "rating": "1",
-      "id": 14
     }
   ]
 }

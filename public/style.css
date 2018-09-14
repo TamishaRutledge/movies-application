@@ -3,18 +3,28 @@ html, body {
 }
 
 body {
-    background-color: darkblue;
+    background-color: #4580e0;
     color: peachpuff;
+    padding: 3%;
+}
+
+.title{
+    text-align: center;
+}
+
+.list {
+    margin-right: 15%;
+    font-size: x-large;
 }
 
 .container {
     /*position: relative;*/
     /*top: 50%;*/
     /*transform: translateY(-100%);*/
-    text-align: center;
+    /*text-align: center;*/
 }
 
 #movieTable{
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
 }
